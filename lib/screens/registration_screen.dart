@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messageme_app/widgets/my_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
+  static const String registrationRoute = "registration_screen";
   const RegistrationScreen({super.key});
 
   @override

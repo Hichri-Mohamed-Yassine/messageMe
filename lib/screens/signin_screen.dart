@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messageme_app/widgets/my_button.dart';
 
 class SigninScreen extends StatefulWidget {
+  static const String signinRoute = "signin_screen";
   const SigninScreen({super.key});
 
   @override
