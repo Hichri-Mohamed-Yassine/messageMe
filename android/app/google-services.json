@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "175054877070",
+    "project_id": "messageme-app-ab8d8",
+    "storage_bucket": "messageme-app-ab8d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175054877070:android:3493b182744d88ef01f4df",
+        "android_client_info": {
+          "package_name": "at.hichri.messageme_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRVC1MJevYqslm0HUM-3bTFrGgP_7GkHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
