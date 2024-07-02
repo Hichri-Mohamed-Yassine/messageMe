@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:messageme_app/screens/chat_screen.dart';
 import 'package:messageme_app/widgets/my_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SigninScreen extends StatefulWidget {
   static const String signinRoute = "signin_screen";
@@ -10,6 +12,10 @@ class SigninScreen extends StatefulWidget {
 }
 
 class _SigninScreenState extends State<SigninScreen> {
+  final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,9 @@ class _SigninScreenState extends State<SigninScreen> {
             TextField(
               keyboardType: TextInputType.emailAddress,
               textAlign: TextAlign.center,
-              onChanged: (value) {},
+              onChanged: (value) {
+                email = value;
+              },
               decoration: const InputDecoration(
                 hintText: 'Enter your Email',
                 contentPadding: EdgeInsets.symmetric(
@@ -68,7 +76,9 @@ class _SigninScreenState extends State<SigninScreen> {
             TextField(
               obscureText: true,
               textAlign: TextAlign.center,
-              onChanged: (value) {},
+              onChanged: (value) {
+                password = value;
+              },
               decoration: const InputDecoration(
                 hintText: 'Enter your password',
                 contentPadding: EdgeInsets.symmetric(
@@ -104,7 +114,19 @@ class _SigninScreenState extends State<SigninScreen> {
               height: 10,
             ),
             MyButton(
-                color: Colors.yellow[900]!, title: "Register", onPressed: () {})
+                color: Colors.yellow[900]!,
+                title: "Register",
+                onPressed: () async {
+                  try {
+                    final user = await _auth.signInWithEmailAndPassword(
+                        email: email, password: password);
+                    if (user != null) {
+                      Navigator.pushNamed(context, ChatScreen.chatRoute);
+                    }
+                  } catch (e) {
+                    print(e);
+                  }
+                })
           ],
         ),
       ),
